@@ -1,10 +1,10 @@
-<div><h1 style="animation: ease-in-out">Rate this photo!</h1></div>
+<div><h1>Rate this photo!</h1></div>
 
-<ng-template #popContent ><div style="background-color: chocolate"><h4>{{displayRating(hovered)}}</h4></div></ng-template>
-<h2><ngb-rating style="color: chocolate" [ngbTooltip]="popContent" placement="right" [(rate)]="selected" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="readonly"></ngb-rating></h2>
+<ng-template #popContent ><div ><h4>{{displayRating(hovered)}}</h4></div></ng-template>
+<h2><ngb-rating [ngbTooltip]="popContent" placement="right" (click)="rate(selected)" [(rate)]="selected" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="readonly"></ngb-rating></h2>
 
 <hr>
 <pre>
-<h2>Rated: <b>{{selected}}, {{displayRating(selected)}}</b></h2>
+<h3 style="color: chocolate">Rated: <b>{{selected}}, {{displayRating(selected)}}</b></h3>
 
 </pre>

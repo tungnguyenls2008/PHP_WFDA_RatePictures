@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {NgbCarousel, NgbSlideEvent, NgbSlideEventSource} from '@ng-bootstrap/ng-bootstrap';
-
+import {RateModelComponent} from '../rate-model/rate-model.component';
 
 @Component({
   selector: 'app-rate-resource',
@@ -8,11 +8,12 @@ import {NgbCarousel, NgbSlideEvent, NgbSlideEventSource} from '@ng-bootstrap/ng-
   styleUrls: ['./rate-resource.component.scss']
 })
 export class RateResourceComponent implements OnInit {
+  count: number;
   images = [
     {
       id: 1,
       url: '../assets/images/0001.jpg',
-      rate: 5,
+      rate: 8,
       active: 'active'
     }
     ,
@@ -41,7 +42,6 @@ export class RateResourceComponent implements OnInit {
       active: ''
     }
   ];
-  count: number;
 
   showNavigationArrows = false;
   showNavigationIndicators = true;

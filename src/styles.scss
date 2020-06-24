@@ -6,3 +6,15 @@ body{
   size: 30px;
   text-align: center;
 }
+h1,h2{
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+@keyframes example {
+  0%   {color:red;}
+  25%  {color: #e81ab5;}
+  50%  {color:blue;}
+  75%  {color:green;}
+  100% {color:red;}
+}

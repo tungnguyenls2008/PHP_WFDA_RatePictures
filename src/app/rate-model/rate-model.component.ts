@@ -1,4 +1,5 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {compareNumbers} from "@angular/compiler-cli/src/diagnostics/typescript_version";
 
 @Component({
   selector: 'app-rate-model',
@@ -6,18 +7,24 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges
   styleUrls: ['./rate-model.component.scss']
 })
 export class RateModelComponent implements OnInit {
+
+  constructor() {
+  }
   @Input() selected = 0;
   @Output() newStart = new EventEmitter();
   hovered = 0;
   readonly: any;
-  constructor() {
-  }
+  rated: number;
 
   ngOnInit(): void {
   }
 
+  ngOnChange() {
+    return 'changed';
+  }
+
   displayRating(value) {
-    if (isNaN(value ) || value === 0) {
+    if (isNaN(value) || value === 0) {
       return 'Please pick your rate!';
     } else if (value === 1 || value === 2 || value === 3) {
       return 'This can be better!';
@@ -29,8 +36,9 @@ export class RateModelComponent implements OnInit {
       return 'Exceptionally Beautiful!';
     }
   }
-
-  rate() {
-      console.log(123);
+  rate(value) {
+    this.rated = value;
+    console.log(this.rated);
+    return this.rated;
   }
 }
