@@ -1,7 +1,10 @@
-<div> <h1>Rate this picture!</h1></div>
-<div id="rating">Your rate: <ngb-rating [(rate)]="rating">
+<div><h1 style="animation: ease-in-out">Rate this photo!</h1></div>
 
-</ngb-rating>{{displayRating()}}
+<ng-template #popContent ><div style="background-color: chocolate"><h4>{{displayRating(hovered)}}</h4></div></ng-template>
+<h2><ngb-rating style="color: chocolate" [ngbTooltip]="popContent" placement="right" [(rate)]="selected" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="readonly"></ngb-rating></h2>
+
 <hr>
-<pre>Rate: <b>{{rating}}</b></pre>
-</div>
+<pre>
+<h2>Rated: <b>{{selected}}, {{displayRating(selected)}}</b></h2>
+
+</pre>

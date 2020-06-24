@@ -15,7 +15,7 @@ import { RateResourceComponent } from './rate-resource/rate-resource.component';
     BrowserModule,
     NgbModule,
     NgbRatingModule,
-    NgbCarouselModule
+    NgbCarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

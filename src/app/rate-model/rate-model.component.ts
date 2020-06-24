@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-rate-model',
@@ -6,25 +6,31 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./rate-model.component.scss']
 })
 export class RateModelComponent implements OnInit {
-  rating = 0;
-
+  @Input() selected = 0;
+  @Output() newStart = new EventEmitter();
+  hovered = 0;
+  readonly: any;
   constructor() {
   }
 
   ngOnInit(): void {
   }
 
-  displayRating() {
-    if (this.rating === 0) {
+  displayRating(value) {
+    if (isNaN(value ) || value === 0) {
       return 'Please pick your rate!';
-    } else if (this.rating === 1 || this.rating === 2 || this.rating === 3) {
+    } else if (value === 1 || value === 2 || value === 3) {
       return 'This can be better!';
-    } else if (this.rating === 4 || this.rating === 5 || this.rating === 6) {
-      return 'This one is ok, i guess';
-    } else if (this.rating === 7 || this.rating === 8 || this.rating === 9) {
+    } else if (value === 4 || value === 5 || value === 6) {
+      return 'This one is ok I guess...';
+    } else if (value === 7 || value === 8 || value === 9) {
       return 'This one is great!';
     } else {
-      return 'This is Gorgeous!';
+      return 'Exceptionally Beautiful!';
     }
+  }
+
+  rate() {
+      console.log(123);
   }
 }
